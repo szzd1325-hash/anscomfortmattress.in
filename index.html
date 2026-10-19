@@ -1216,6 +1216,8 @@ const ADDR_F = [
 ];
 window.__addr = window.__addr || { state:"" };
 const addrEsc = v => String(v||"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+window.__sel = window.__sel || {};
+function selOf(p){ const x=window.__sel[p.id]; if(!x||!x.sz) return ""; return x.sz+" size"+(x.dm?" · "+x.dm+" in":""); }
 function openCheckout(){
   const A = window.__addr;
   const f = k => ADDR_F.find(x => x[0]===k);
@@ -1225,8 +1227,8 @@ function openCheckout(){
       <div><p class="eyebrow">Step 1 of 2 · Delivery</p><h2>Enter delivery address</h2></div>
       <button class="icon-btn" data-close="1" aria-label="Close">${svg("i-x")}</button>
     </div>
-    <button class="btn btn-wa btn-full addr-wa" type="button" data-addrwa="1">${svg("i-wa")} Send this on WhatsApp</button>
-    <label class="ou-lbl">Select your country<select id="ad_country" disabled><option>India</option></select></label>
+    <div class="addr-cart" style="border:1px solid var(--border);border-radius:var(--radius);padding:.8rem 1rem;margin:.9rem 0;background:var(--card)"><b style="display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.45rem">Your cart</b>${products.filter(p=>cart[p.id]).map(p=>{const S=selOf(p);return `<div style="display:flex;justify-content:space-between;gap:.75rem;font-size:.88rem;padding:.25rem 0"><span><strong>${p.name}</strong>${S?`<br><small class="muted">${S}</small>`:""}</span><span>×${cart[p.id]}</span></div>`;}).join("")}<div style="display:flex;justify-content:space-between;border-top:1px solid var(--border);margin-top:.45rem;padding-top:.45rem;font-weight:700"><span>Total</span><span>₹${fmt(total())}</span></div></div>
+    <label class="ou-lbl">Country<select id="ad_country" disabled><option>India</option></select></label>
     ${["name","phone"].map(inp).join("")}
     <p class="addr-note">May be used to assist delivery</p>
     ${inp("email")}
@@ -1235,7 +1237,7 @@ function openCheckout(){
     <div class="addr-2">${inp("pin")}${inp("city")}</div>
     <label class="ou-lbl">State<select id="ad_state"><option value="">Select</option>${["Telangana","Andhra Pradesh"].map(s=>`<option${A.state===s?" selected":""}>${s}</option>`).join("")}</select></label>
     <p class="rf-msg" id="adMsg" role="status"></p>
-    <button class="btn btn-brass btn-full addr-done" type="button" data-addrdone="1">Done · Ready for payment ${svg("i-chev")}</button>
+    ${A.sent?`<button class="btn btn-brass btn-full addr-done" type="button" data-addrdone="1">✅ Now ready for payment ${svg("i-chev")}</button>`:`<button class="btn btn-wa btn-full addr-wa" type="button" data-addrwa="1">${svg("i-wa")} Share details on WhatsApp</button>`}
   </div>`);
 }
 function addrSave(check){
@@ -1258,7 +1260,7 @@ function addrSave(check){
 }
 function addrWaLink(){
   const A = window.__addr;
-  const items = products.filter(p => cart[p.id]).map(p => p.name + " x" + cart[p.id]).join(", ");
+  const items = products.filter(p => cart[p.id]).map(p => p.name + (selOf(p)?" ("+selOf(p)+")":"") + " x" + cart[p.id]).join(", ");
   const txt = "Hi ANS Comfort Mattress, I'd like to order:\n" + items + "\nTotal: Rs." + fmt(total()) +
     "\n\nDelivery details:\nName: " + A.name + "\nMobile: " + A.phone + (A.email ? "\nEmail: " + A.email : "") +
     "\nAddress: " + A.flat + ", " + A.area + (A.landmark ? ", Landmark: " + A.landmark : "") +
@@ -1343,7 +1345,7 @@ document.addEventListener("click", e => {
   if (t.dataset.paystep) return openPayment();
   if (t.dataset.addrback) return openCheckout();
   if (t.dataset.addrdone) { if (addrSave(true)) openPayment(); return; }
-  if (t.dataset.addrwa) { if (addrSave(true)) window.open(addrWaLink(), "_blank", "noopener"); return; }
+  if (t.dataset.addrwa) { if (addrSave(true)) { window.open(addrWaLink(), "_blank", "noopener"); window.__addr.sent = true; openCheckout(); } return; }
   if (t.dataset.order) return openSuccess();
   if (t.dataset.close) return closeAll();
 });
@@ -1595,7 +1597,7 @@ products.push(
   ${reviews(p)}
   <div class="more"><h2>You may also like</h2><div class="pgrid">${others.map(card).join("")}</div></div></div>`;
   let sz=sizes[0],dm=""; const wa=document.getElementById("pwa");const dmEl=document.getElementById("dm");const drawDm=()=>{if(!dmEl)return;const L=DIM[sz]||[];dm=L[0]||"";dmEl.innerHTML=L.map((d,i)=>`<button class="chip${i==0?" on":""}" data-dm="${d}">${d}</button>`).join("");};drawDm();if(dmEl)dmEl.onclick=e=>{const b=e.target.closest(".chip");if(!b)return;dm=b.dataset.dm;dmEl.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c===b));upd();};
-  const upd=()=>wa.href=WA+encodeURIComponent("Hi ANS Comfort Mattress, I'd like to buy the "+p.name+(sz?" ("+sz+" size"+(dm?", "+dm+" in":"")+")":"")+". Could you share the details?");
+  const upd=()=>((window.__sel=window.__sel||{})[p.id]={sz,dm},wa.href=WA+encodeURIComponent("Hi ANS Comfort Mattress, I'd like to buy the "+p.name+(sz?" ("+sz+" size"+(dm?", "+dm+" in":"")+")":"")+". Could you share the details?"));
   upd();
   (document.getElementById("sz")||{}).onclick=e=>{const b=e.target.closest(".chip");if(!b)return;sz=b.dataset.sz;if(p.prices){const k=sizes.indexOf(sz);p.price=p.prices[k];p.oldPrice=p.olds[k];document.getElementById("pdpr").innerHTML=`<b style="font-size:1.8rem">₹${fmt(p.price)}</b><s>₹${fmt(p.oldPrice)}</s><em>Save ${save(p)}%</em>`;}document.querySelectorAll("#sz .chip").forEach(c=>c.classList.toggle("on",c===b));drawDm();upd();};
   document.title=p.name+" · ANS Comfort Mattress";
