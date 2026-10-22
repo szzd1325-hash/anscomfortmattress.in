@@ -7,7 +7,7 @@
 <meta name="color-scheme" content="only light" />
 <script>try{if("IntersectionObserver" in window&&"classList" in document.documentElement){document.documentElement.classList.add("js");window.__jsTimer=setTimeout(function(){document.documentElement.classList.remove("js")},8000)}}catch(e){}</script>
 <title>ANS Comfort Mattress — Sleep, Considered</title>
-<meta name="description" content="Explore premium mattresses, beds, and pillows. Compare comfort types, shop with free delivery across Andhra Pradesh &amp; Telangana. Call or WhatsApp us." />
+<meta name="description" content="Explore premium mattresses, beds, and pillows. Compare comfort types, shop with free transportation across Andhra Pradesh &amp; Telangana. Call or WhatsApp us." />
 <meta property="og:title" content="ANS Comfort Mattress — Sleep, Considered" />
 <meta property="og:description" content="A cinematic mattress showroom with premium beds made for better sleep." />
 <meta property="og:type" content="website" />
@@ -929,7 +929,7 @@ body.sub .locbar{display:none}
   </div>
 </section>
 
-<div class="marquee" aria-hidden="true"><div class="track"><span>Free delivery across AP &amp; Telangana</span><span>15-year warranty</span><span>Call or WhatsApp us</span><span>Free delivery across AP &amp; Telangana</span><span>15-year warranty</span><span>Call or WhatsApp us</span><span>Free delivery across AP &amp; Telangana</span><span>15-year warranty</span><span>Call or WhatsApp us</span><span>Free delivery across AP &amp; Telangana</span><span>15-year warranty</span><span>Call or WhatsApp us</span></div></div>
+<div class="marquee" aria-hidden="true"><div class="track"><span>Free transportation across AP &amp; Telangana</span><span>15-year warranty</span><span>Call or WhatsApp us</span><span>Free transportation across AP &amp; Telangana</span><span>15-year warranty</span><span>Call or WhatsApp us</span><span>Free transportation across AP &amp; Telangana</span><span>15-year warranty</span><span>Call or WhatsApp us</span><span>Free transportation across AP &amp; Telangana</span><span>15-year warranty</span><span>Call or WhatsApp us</span></div></div>
 
 <section class="offers" id="offers" aria-label="Offers for you">
   <div class="wrap">
@@ -1126,7 +1126,11 @@ body.sub .locbar{display:none}
       </div>
       <div class="faq-item reveal" style="--d:0.21s">
         <button class="faq-q" id="fq3" type="button" aria-expanded="false" aria-controls="fa3"><span>Do we deliver across AP &amp; Telangana?</span><span class="pm"><svg><use xlink:href="#i-plus" href="#i-plus"/></svg></span></button>
-        <div class="faq-a" id="fa3" role="region" aria-labelledby="fq3"><div><p>Yes. Delivery is free across Andhra Pradesh and Telangana and usually takes 5–7 days.</p></div></div>
+        <div class="faq-a" id="fa3" role="region" aria-labelledby="fq3"><div><p>Yes. We give free transportation across Andhra Pradesh and Telangana, usually in 5–7 days. Please note we do not offer doorstep delivery.</p></div></div>
+      </div>
+      <div class="faq-item reveal" style="--d:0.28s">
+        <button class="faq-q" id="fq4" type="button" aria-expanded="false" aria-controls="fa4"><span>How can I pay?</span><span class="pm"><svg><use xlink:href="#i-plus" href="#i-plus"/></svg></span></button>
+        <div class="faq-a" id="fa4" role="region" aria-labelledby="fq4"><div><p>Payment is online only, using UPI apps like Google Pay, PhonePe or Paytm. Cash on delivery is not available. After paying, share the payment screenshot with us on WhatsApp to confirm your order.</p></div></div>
       </div>
     </div>
   </div>
@@ -1241,9 +1245,9 @@ function openProduct(id){
       <p class="muted" style="margin-top:.5rem;font-size:.9rem">${p.type} · King size</p>
       <div style="margin-top:1.25rem;display:flex;align-items:baseline;gap:.75rem"><strong style="font-size:1.5rem">₹${fmt(p.price)}</strong><span class="muted" style="text-decoration:line-through">₹${fmt(p.oldPrice)}</span></div>
       <div class="features">
-        <div class="feature">${svg("i-truck")} Free delivery in 5–7 days</div>
+        <div class="feature">${svg("i-truck")} Free transportation in 5–7 days</div>
         <div class="feature">${svg("i-shield")} 10-year limited warranty</div>
-        <div class="feature">${svg("i-pack")} Cash on delivery available</div>
+        <div class="feature">${svg("i-rupee")} Secure online payment (UPI)</div>
       </div>
       <div class="actions">
         <button class="btn btn-outline" data-add="${p.id}">${svg("i-bag")} Add to cart</button>
@@ -1427,7 +1431,7 @@ function openSuccess(){
   mount(`<div class="modal"><div class="success">
     <div class="tick">${svg("i-check")}</div>
     <h2>Order received.</h2>
-    <p>Your demo COD order is confirmed. No real order or payment was created.</p>
+    <p>Your order is received. Please complete the online payment to confirm it.</p>
     <button class="btn btn-hero" style="margin-top:1.75rem" data-close="1">Continue shopping</button>
   </div></div>`);
 }
@@ -1665,7 +1669,7 @@ products.push(
  const WA="https://wa.me/919912524242?text=";
  const save=p=>Math.round((1-p.price/p.oldPrice)*100);
  const card=(p,i=0)=>`<a class="pc" style="--i:${i}" href="#/product/${p.id}"><div class="im${sq(p)}"><span class="tag">${p.badge}</span>${cpic(p)}</div><div class="bd"><h3${[27,29].includes(p.id)?' class="ln"':''}>${p.name}</h3><p class="ty">${p.type}</p><div class="pr"><b>₹${fmt(p.price)}</b><s>₹${fmt(p.oldPrice)}</s><em>Save ${save(p)}%</em></div></div></a>`;
- const T={beds:["Beds","Solid wood, storage and upholstered beds, made to last. Free delivery and assembly."],mattresses:["Mattresses","Memory foam, orthopaedic and pocket spring, with a 15-year warranty."],pillows:["Pillows","Soft and supportive pillows for every sleeping position."],headboards:["Headboards","Tufted and upholstered headboards to finish your bedroom."],sofas:["Sofas","Fabric, L-shape, sofa cum bed and recliner sofas, made for long evenings at home."]};
+ const T={beds:["Beds","Solid wood, storage and upholstered beds, made to last. Free transportation and assembly."],mattresses:["Mattresses","Memory foam, orthopaedic and pocket spring, with a 15-year warranty."],pillows:["Pillows","Soft and supportive pillows for every sleeping position."],headboards:["Headboards","Tufted and upholstered headboards to finish your bedroom."],sofas:["Sofas","Fabric, L-shape, sofa cum bed and recliner sofas, made for long evenings at home."]};
  const DIM={Single:["30 × 70","36 × 70","36 × 72","36 × 75","36 × 78"],Double:["40 × 70","48 × 70","48 × 72","48 × 75","48 × 78"],Queen:["58 × 70","60 × 70","60 × 72","60 × 75","60 × 78"],King:["70 × 70","72 × 72","72 × 75","72 × 78"]};
  const SZ={beds:["Single","Double","Queen","King"],mattresses:["Single","Double","Queen","King"],pillows:["Standard"],cushions:["16 x 16 in","18 x 18 in"],headboards:[],sofas:[]};
  const sq=p=>p.sp?" sq":"";
@@ -1676,7 +1680,7 @@ products.push(
  const SOFA=document.querySelector('a.cat[href="#/sofas"] .ph').style.backgroundImage;
  function list(c){
   ps0(c);const ps=products.filter(p=>p.cat===c),hp=ps.find(p=>p.img)||ps[0];
-  page.innerHTML=`<section class="cp-hero"><div class="cp-img"><img src="${hp.img}" alt=""></div><div class="cp-shade"></div><div class="wrap cp-txt"><span class="cp-eyebrow">The ANS collection</span><h1>${T[c][0]}</h1><p class="tg">${TG[c]}</p><div class="cp-meta"><span>${ps.length} products</span><span>Free delivery</span><span>${c==="sofas"?"Free assembly":"15-year warranty"}</span></div></div></section>
+  page.innerHTML=`<section class="cp-hero"><div class="cp-img"><img src="${hp.img}" alt=""></div><div class="cp-shade"></div><div class="wrap cp-txt"><span class="cp-eyebrow">The ANS collection</span><h1>${T[c][0]}</h1><p class="tg">${TG[c]}</p><div class="cp-meta"><span>${ps.length} products</span><span>Free transportation</span><span>${c==="sofas"?"Free assembly":"15-year warranty"}</span></div></div></section>
   <div class="wrap"><p class="crumbs"><a href="#top">Home</a> / ${T[c][0]}</p><div class="tabs">${Object.keys(T).map(k=>`<a href="#/${k}" class="${c==k?"on":""}">${T[k][0]}</a>`).join("")}</div><div class="pgrid">${ps.map((p,i)=>card(p,i)).join("")}</div></div>`;
   document.title=T[c][0]+" · ANS Comfort Mattress";
  }
@@ -1696,7 +1700,7 @@ products.push(
  const gthumb=(x,nm)=>x.sp?`<div class="sp" style="--bs:${x.sp[0]};--bp:${x.sp[1]}"></div>`:`<img src="${x.img}" alt="${nm}" loading="lazy">`;
  function extras(p){
   const c=CATX[p.cat],sh=p.cat==="beds"||p.cat==="headboards"||p.cat==="mattresses"||p.cat==="sofas";
-  const acc=[["Description",`<p>${p.desc}</p>`],["Features","<ul>"+(p.feat||c.feat).map(f=>`<li>${f}</li>`).join("")+"</ul>"],["How to use &amp; care","<ul>"+c.use.map(f=>`<li>${f}</li>`).join("")+"</ul>"],["Shipping + returns",`<p>Free delivery across Andhra Pradesh &amp; Telangana in 5-7 days. Cash on delivery available. ${sh?"Free home assembly. ":""}Easy return or exchange within 7 days if the product is unused or has a defect. Call or WhatsApp us for help.</p>`]];
+  const acc=[["Description",`<p>${p.desc}</p>`],["Features","<ul>"+(p.feat||c.feat).map(f=>`<li>${f}</li>`).join("")+"</ul>"],["How to use &amp; care","<ul>"+c.use.map(f=>`<li>${f}</li>`).join("")+"</ul>"],["Shipping + returns",`<p>Free transportation across Andhra Pradesh &amp; Telangana in 5-7 days. We do not offer doorstep delivery. Payment is online only (UPI) &mdash; no cash on delivery. ${sh?"Free home assembly. ":""}Easy return or exchange within 7 days if the product is unused or has a defect. Call or WhatsApp us for help.</p>`]];
   return `<div class="acc" id="acc">${acc.map((a,i)=>`<div class="acc-i${i?"":" open"}"><button class="acc-q">${a[0]}</button><div class="acc-a">${a[1]}</div></div>`).join("")}</div>`;
  }
  function reviews(p){
@@ -1714,7 +1718,7 @@ products.push(
   <div class="pr" id="pdpr" style="margin-top:1rem"><b style="font-size:1.8rem">₹${fmt(p.price)}</b><s>₹${fmt(p.oldPrice)}</s><em>Save ${save(p)}%</em></div>
   ${sizes.length?`<div class="opt"><b>Size</b><div class="chips" id="sz">${sizes.map((s,i)=>`<button class="chip${i==0?" on":""}" data-sz="${s}">${s}</button>`).join("")}</div></div>${(p.cat=="beds"||p.cat=="mattresses")?`<div class="opt"><b>Dimensions (inches)</b><div class="chips" id="dm"></div></div>`:""}`:""}
   <div class="opt"><b>Quantity</b><div class="qtyrow"><div class="qtyb"><button id="qm" aria-label="Decrease">−</button><span id="qv">1</span><button id="qp" aria-label="Increase">+</button></div></div></div><div class="pd-btns"><button class="btn btn-hero btn-full" data-buy="${p.id}">Buy now</button><button class="btn btn-outline btn-full" data-add="${p.id}">${svg("i-bag")} Add to cart</button><a class="btn btn-full" id="pwa" style="background:#1f9d55;color:#fff" target="_blank" rel="noopener" href="#">${svg("i-wa")} Order on WhatsApp</a></div>
-  <ul class="perks"><li>${svg("i-truck")} Free delivery across AP &amp; Telangana</li><li>${svg("i-shield")} ${p.cat==="sofas"?"Quality-checked before dispatch":"15-year warranty"}</li><li>${svg("i-rupee")} Free assembly and support</li></ul>
+  <ul class="perks"><li>${svg("i-truck")} Free transportation across AP &amp; Telangana (no doorstep delivery)</li><li>${svg("i-rupee")} Secure online payment (UPI)</li><li>${svg("i-shield")} ${p.cat==="sofas"?"Quality-checked before dispatch":"15-year warranty"}</li><li>${svg("i-rupee")} Free assembly and support</li></ul>
   <table class="spec">${p.specs.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join("")}</table>${extras(p)}</div></div>
   ${reviews(p)}
   <div class="more"><h2>You may also like</h2><div class="pgrid">${others.map(card).join("")}</div></div></div>`;
@@ -1823,8 +1827,16 @@ products.push(
   var KEY="ans_reviews_v1", WA="919912524242";
   var STAR='<svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>';
   function esc(t){return String(t).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
-  function load(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return []}}
-  function save(a){try{localStorage.setItem(KEY,JSON.stringify(a))}catch(e){}}
+  /* reviews are saved online so every visitor sees them */
+  var API="https://c--64806eac-0064-488b-bc4a-24eb93c4f420-prod.lovable.cloud/rest/v1/reviews", AK="sb_publishable_s2VFZmWsegLnrUi50ARdqg_7tTjj48-", H={"apikey":AK,"Content-Type":"application/json"};
+  var shared=[];
+  function fmt(d){try{return new Date(d).toLocaleDateString("en-IN",{month:"short",year:"numeric"})}catch(e){return ""}}
+  function load(){return shared}
+  function fetchAll(){return fetch(API+"?select=rating,name,city,product,text,created_at&order=created_at.asc&limit=1000",{headers:H}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(rows){shared=rows.map(function(x){return {rating:x.rating,name:x.name,city:x.city,product:x.product,text:x.text,date:fmt(x.created_at)}});render()}).catch(function(){})}
+  function post(r){return fetch(API,{method:"POST",headers:Object.assign({"Prefer":"return=minimal"},H),body:JSON.stringify({rating:r.rating,name:r.name,city:r.city||"",product:r.product||"",text:r.text})}).then(function(x){if(!x.ok)throw 0})}
+  /* reviews posted earlier on this phone (only saved here before) get shared once */
+  function syncOld(){try{if(localStorage.getItem(KEY+"_shared"))return Promise.resolve();var old=JSON.parse(localStorage.getItem(KEY)||"[]");if(!old.length){localStorage.setItem(KEY+"_shared","1");return Promise.resolve()}
+    return Promise.all(old.map(post)).then(function(){localStorage.setItem(KEY+"_shared","1")})}catch(e){return Promise.resolve()}}
   function stars(n){var h='<span class="stars" role="img" aria-label="'+n+' out of 5 stars">';for(var k=1;k<=5;k++)h+=STAR.replace('<svg','<svg class="'+(k>n?'dim':'')+'" style="--k:'+k+'"');return h+'</span>'}
   var originalRow=document.getElementById("revRow"), originalReviews=originalRow?originalRow.innerHTML:"";
   var originalRatings=originalRow?Array.from(originalRow.querySelectorAll(".stars")).map(function(s){return parseInt(s.getAttribute("aria-label"),10)}):[];
@@ -1852,13 +1864,16 @@ products.push(
     if(name.length<2){msg.className="rf-msg err";msg.textContent="Please enter your name.";return}
     if(text.length<10){msg.className="rf-msg err";msg.textContent="Please write at least a few words.";return}
     var r={rating:rating,name:name.slice(0,40),city:f.city.value.trim().slice(0,30),product:f.product.value,text:text.slice(0,500),date:new Date().toLocaleDateString("en-IN",{month:"short",year:"numeric"})};
-    var a=load();a.push(r);save(a);render();
+    var btn=f.querySelector('button[type="submit"]');btn.disabled=true;msg.textContent="Posting your review…";
+    post(r).then(function(){
+    shared.push(r);render();fetchAll();
     var wa="https://wa.me/"+WA+"?text="+encodeURIComponent("New review for ANS Comfort Mattress\n"+"★".repeat(r.rating)+"\n"+r.name+(r.city?" ("+r.city+")":"")+(r.product?"\nProduct: "+r.product:"")+"\n\n"+r.text);
     msg.innerHTML='Thank you! Your review is posted. <a href="'+wa+'" target="_blank" rel="noopener" style="text-decoration:underline">Also send it to us on WhatsApp</a>';
-    f.reset();rating=0;drawStars();
+    f.reset();rating=0;drawStars();btn.disabled=false;
     document.getElementById("reviews").scrollIntoView({behavior:"smooth"});
+    }).catch(function(){btn.disabled=false;msg.className="rf-msg err";msg.textContent="Could not post right now. Please check your internet and try again."});
   });
-  render();
+  render();syncOld().then(fetchAll,fetchAll);setInterval(fetchAll,60000);
 })();
 </script>
 <script>
